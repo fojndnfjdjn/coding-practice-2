@@ -18,6 +18,7 @@ const getData = async () => {
 
     // add a new table
     const table = await db.addTable(`entries_${process.env.COUNT}`, [
+      'uniqueId',
       'owner_name',
       'ward_number',
       'zone_number',
@@ -54,6 +55,7 @@ const getData = async () => {
 
       // Insert Single Entry
       await table.insertOne({
+        uniqueId: uniqueId,
         owner_name: ownerName,
         ward_number: wardNumber,
         zone_number: zoneNumber,
