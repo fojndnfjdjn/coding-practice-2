@@ -1,0 +1,35 @@
+name: get-data
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  compiling-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+
+      - name: setup-node
+        uses: actions/setup-node@master
+
+      - name: create .env file
+        run: |
+          touch .env
+          echo site_ = ${{ secrets.site_ }} >> .env
+          echo uniqueId = ${{ secrets.uniqueId }} >> .env
+          echo GOOGLE_SERVICE_ACCOUNT_EMAIL = ${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }} >> .env
+          echo GOOGLE_PRIVATE_KEY = ${{ secrets.GOOGLE_PRIVATE_KEY }} >> .env
+          echo _ID = ${{ secrets._ID }} >> .env
+          echo COUNT = ${{ github.run_number }} >> .env
+          
+
+      - name: installing dependencies
+        run: |
+          npm install
+
+      - name: fetch data
+        run: |
+          node index.js
