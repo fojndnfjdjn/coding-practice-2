@@ -54,8 +54,6 @@ const getData = async () => {
       const mobileNumber = $('#WD4B').val();
       const emailId = $('#WD50').val();
 
-      console.log(`index ${index} id: ${uniqueId} ownerName ${ownerName}`);
-
       // Insert Single Entry
       await table.insertOne({
         uniqueId: uniqueId,
