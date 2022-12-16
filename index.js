@@ -29,7 +29,7 @@ const getData = async () => {
       'email_address',
     ]);
 
-    for (let index = 0; index < 600; index++) {
+    for (let index = 0; index < 800; index++) {
       const site_url = `${site_}${uniqueId}#`;
       const page = await browser.newPage();
 
