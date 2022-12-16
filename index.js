@@ -30,9 +30,10 @@ const getData = async () => {
     ]);
 
     for (let index = 0; index < 2; index++) {
+      console.log('index ', index );
       const site_url = `${site_}${uniqueId}#`;
       const page = await browser.newPage();
-
+      console.log('uniqueId ', uniqueId );
       await page.setExtraHTTPHeaders({
         'user-agent':
           'Mozilla/5.0 (iPhone; CPU iPhone OS 16_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Mobile/15E148 Safari/604.1',
